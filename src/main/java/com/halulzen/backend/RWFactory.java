@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -23,17 +22,6 @@ public abstract class RWFactory {
     private static final Gson gson = new Gson();
     private static JsonArray readJson;
     private static final List<AuthorizingData> userData = new ArrayList<>();
-    private static SecretKey secretKey;
-
-    static {
-        try {
-            KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-            keyGen.init(256);
-            SecretKey secretKey = keyGen.generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void init(String uuid) {
         try {
@@ -115,8 +103,9 @@ public abstract class RWFactory {
 
     private static String crypt(String value, boolean encrypt) {
         try {
-
-
+            KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+            keyGen.init(256);
+            SecretKey secretKey = keyGen.generateKey();
             if (encrypt) {
                 return encrypt(value, secretKey);
             } else {
