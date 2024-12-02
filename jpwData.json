@@ -1,16 +1,38 @@
 {
-    "Test": [
-        {
-            "username": "johndoe",
-            "password": "password123"
-        },
-        {
-            "username": "janedoe",
-            "password": "password456"
-        },
-        {
-            "username": "jimdoe",
-            "password": "password789"
-        }
-    ]
+    "Data": {
+        "Test": [
+            {
+                "username": "johndoe",
+                "password": "password123",
+                "website": "testSite1"
+            },
+            {
+                "username": "janedoe",
+                "password": "password456",
+                "website": "testSite1"
+            },
+            {
+                "username": "jimdoe",
+                "password": "password789",
+                "website": "testSite1"
+            }
+        ],
+        "Test2": [
+            {
+                "username": "johndoe",
+                "password": "password123",
+                "website": "testSite1"
+            },
+            {
+                "username": "janedoe",
+                "password": "password456",
+                "website": "testSite1"
+            },
+            {
+                "username": "jimdoe",
+                "password": "password789",
+                "website": "testSite1"
+            }
+        ]
+    }
 }
